@@ -1,0 +1,101 @@
+<!--
+    created by Melissa Underwood
+    2/7/2024
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/29dc434267.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Simple Calculator</h1>
+        <div id="calculator" class="center">
+            <table>
+                <tr>
+                    <th colspan="4"><input type="number" id="display" value=""></input></th>
+                </tr>
+                <tr>
+                    <th colspan="4"><button onclick="clearField()" class="fa-solid fa-c but"></button></th>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="addValue(7)" class="fa-solid fa-7 numBut"></input></td>
+                    <td><input type="button" value="8" onclick="addValue(8)" class="fa-solid fa-8 numBut"></input></td>
+                    <td><input type="button" value="9" onclick="addValue(9)" class="fa-solid fa-9 numBut"></input></td>
+                    <td><button onclick="operation('*')" class="fa-solid fa-xmark opBut"></button></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="addValue(4)" class="fa-solid fa-4 numBut"></input></td>
+                    <td><input type="button" value="5" onclick="addValue(5)" class="fa-solid fa-5 numBut"></input></td>
+                    <td><input type="button" value="6" onclick="addValue(6)" class="fa-solid fa-6 numBut"></input></td>
+                    <td><button onclick="operation('-')" class="fa-solid fa-minus opBut"></button></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="addValue(1)" class="fa-solid fa-1 numBut"></input></td>
+                    <td><input type="button" value="2" onclick="addValue(2)" class="fa-solid fa-2 numBut"></input></td>
+                    <td><input type="button" value="3" onclick="addValue(3)" class="fa-solid fa-3 numBut"></input></td>
+                    <td><button onclick="operation('+')" class="fa-solid fa-plus opBut"></button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="makeOpposite()" class="fa-solid fa-plus-minus numBut"></button></td>
+                    <td><input type="button" value="0" onclick="addValue(0)" class="fa-solid fa-0 numBut"></input></td>
+                    <td><input type="button" value="." onclick="addValue('.')" class="fa-solid fa-circle numBut"></input></td>
+                    <td><button onclick="operation('/')" class="fa-solid fa-divide opBut"></button></td>
+                </tr>
+                <tr>
+                    <th colspan="4"><button onclick="doMath()" class="fa-solid fa-equals but"></button></th>
+                </tr>
+            </table>
+        </div>
+        
+        <script>
+            let numberDisplay = document.getElementById("display");
+            let prevNum = 0;
+            let currNum = 0;
+            let result = 0;
+            let oper; // + - * /
+
+            function addValue(num) {
+                numberDisplay.value += num;
+            }
+
+            function operation(op) {
+                prevNum = Number(numberDisplay.value);
+                clearField();
+                oper = op;
+            }
+
+            function clearField() {
+                numberDisplay.value = "";
+            }
+
+            function doMath() {
+                currNum = Number(numberDisplay.value);
+                switch(oper) {
+                    case '+': 
+                        result = prevNum + currNum;
+                        break;
+                    case '-': 
+                        result = prevNum - currNum;
+                        break;
+                    case '*': 
+                        result = prevNum * currNum;
+                        break;
+                    case '/': 
+                        result = prevNum / currNum;
+                        break;
+                }
+                numberDisplay.value = result;
+            }
+
+            function makeOpposite() {
+                numberDisplay.value *= -1;
+            }
+        </script>
+    </body>
+</html>

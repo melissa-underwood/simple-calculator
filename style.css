@@ -1,0 +1,51 @@
+body {
+    padding:0px;
+    margin:0px;
+    text-align: center;
+    background-color: #4B5842;
+}
+
+h1 {
+    color:#FFFFFF;
+}
+
+#calculator {
+    width:25%;
+    background-color: #DADDD8;
+    padding:20px;
+}
+
+.center {
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+table {
+    width:100%;
+}
+
+#display {
+    width:95%;
+    height:150px;
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+td input, td button, th button, th input {
+    width:100%;
+    padding:10px;
+    margin:0px;
+}
+
+.numBut {
+    background-color: #C7D59F;
+}
+
+.opBut {
+    background-color:#B7CE63;
+}
+
+.but {
+    background-color: #8FB339;
+}
